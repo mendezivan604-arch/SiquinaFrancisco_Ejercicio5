@@ -35,3 +35,81 @@ historial = int.Parse(Console.ReadLine());
 
 Console.Write("Tiene fiador (S/N): ");
 fiador = Console.ReadLine();
+
+if (historial == 4)
+{
+    if (fiador == "S" && monto <= 5000)
+    {
+        resultado = "Aprobado con condiciones";
+        motivo = "Historial malo pero tiene fiador";
+    }
+    else
+    {
+        resultado = "Rechazado";
+        motivo = "Historial crediticio malo";
+    }
+}
+else
+{
+    switch (tipoSolicitante)
+    {
+        case 1: 
+            if (antiguedad >= 12 && ingreso >= 2000)
+            {
+                resultado = "Aprobado";
+                motivo = "Empleado estable";
+            }
+            else
+            {
+                resultado = "Aprobado con condiciones";
+                motivo = "Poca antiguedad laboral";
+            }
+            break;
+
+        case 2: 
+            if (antiguedad >= 12 && ingreso >= 2500)
+            {
+                resultado = "Aprobado";
+                motivo = "Ingreso suficiente";
+            }
+            else
+            {
+                resultado = "Rechazado";
+                motivo = "Ingreso o antiguedad insuficiente";
+            }
+            break;
+
+        case 3: 
+            if (ingreso >= 3000)
+            {
+                resultado = "Aprobado";
+                motivo = "Ingreso alto";
+            }
+            else
+            {
+                resultado = "Aprobado con condiciones";
+                motivo = "Ingreso moderado";
+            }
+            break;
+
+        case 4: 
+            if (fiador == "S")
+            {
+                resultado = "Aprobado con condiciones";
+                motivo = "Estudiante con fiador";
+            }
+            else
+            {
+                resultado = "Rechazado";
+                motivo = "Estudiante sin fiador";
+            }
+            break;
+
+        default:
+            Console.WriteLine("Tipo de solicitante invalido");
+            break;
+    }
+}
+
+Console.WriteLine("Resultado del prestamo: " + resultado);
+Console.WriteLine("Motivo principal: " + motivo);
